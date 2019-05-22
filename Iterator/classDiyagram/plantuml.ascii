@@ -1,0 +1,67 @@
+@startuml
+
+title Iterator Class Diagram
+
+
+class EntryAggregate {
+   +EntryProduct[] entryList
+   +{static} int Max_items
+   +int numberofItems 
+   
+  +EntryAggregate(): void
+  +addEntry(Title:String,author:String,date:String) : void
+  +getIterator() : IEntryIterator
+} 
+
+class EntryIterator {
+  +EntryProduct[] entrylist 
+  +int pos
+  
+  +EntryIterator(entryList:EntryProduct[]): void
+  +First(): EntryProduct
+  +Next(): EntryProduct
+  +hasNext(): Boolean
+}
+
+class EntryProduct {
+  
+  +String Title
+  +String Author
+  +String Date
+  
+  +EntryProduct() : void
+  +getAuthor() : String
+  +getTitle() : String
+  +getDate() : String
+  +setAuthor(author:String) : void
+  +setTitle(Title:String): void 
+  +setDate(date:String): void 
+  +getEntry(): String
+}
+
+
+interface  IEntryAggregate{
+  +getIterator() : IEntryIterator
+}
+
+interface  IEntryIterator{
+  +First() : EntryProduct
+  +Next(): EntryProduct
+  +hasNext(): Boolean
+  
+}
+
+class Client{
+  + {static} main() : void
+  
+  
+}
+
+IEntryAggregate <|-- EntryAggregate
+IEntryIterator <|-- EntryIterator
+Client --> IEntryAggregate
+Client --> IEntryIterator 
+EntryIterator --> EntryAggregate
+EntryAggregate ..> EntryIterator
+
+@enduml

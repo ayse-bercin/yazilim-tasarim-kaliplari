@@ -1,0 +1,46 @@
+@startuml
+
+interface Subject{
+
++register(o : Observer) : void
++unregister(o : Observer) : void
++doNotify() : void
+
+}
+
+interface Observer{
++Update(adCount : int) : void
+}
+
+class AdManager{
+
+-ArrayList<Observer> subscribers
+-{static} int adCount
++AdManager() : void 
++register(newSubscriber : Observer) : void
++unregister(tobeRemoved : Observer) : void 
++doNotify() : void
++addAdvertisement() : void 
++deleteAdvertisement() : void
+}
+
+class Subscriber{
+-{static} int SubscriberIDTracker 
+-int SubscriberID
+-Subject manager
+
++Subscriber(manager : Subject) : void
++Update(adCount : int) : void
+}
+
+class Test{
++{static} main() : void  
+}
+
+Subject <|.left.... AdManager
+Observer <|..... Subscriber
+Observer o-up- Subject
+Test --> AdManager : uses
+Test --> Subscriber : uses
+
+@enduml

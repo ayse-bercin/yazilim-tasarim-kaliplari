@@ -1,0 +1,6 @@
+
+PROTOTYPE
+
+
+Hem shallow hem de deep copy ile kullanıcı oluşturma.
+Kullanıcı sosyal medya hesapları class türünden bir eleman olarak kaydedildi.

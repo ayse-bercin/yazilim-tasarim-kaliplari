@@ -1,0 +1,56 @@
+@startuml
+
+title Advertisement - Class Diagram
+
+class Client {
+- AdRemoveAndAdd removeAndAdd
++ Client(factory : AdFactory) : void
++ save() :void
++ del() :void
+}
+
+class Test {
+ + {static} main()
+}
+
+abstract class AdFactory{
+  + {abstract} createAdRemoveAndAdd() : AdRemoveAndAdd 
+}
+
+class SimpleAdFactory{
+ + createAdRemoveAndAdd() : AdRemoveAndAdd 
+}
+
+class ExtendedAdFactory{
+ + createAdRemoveAndAdd() : AdRemoveAndAdd 
+}
+
+abstract class AdRemoveAndAdd  {
++ {abstract} Add() : void
++ {abstract} Remove() : void
+}
+
+class AdRemoveEA {
++ Add() : void
++ Remove() : void
+}
+
+class AdRemoveSA {
++ Add() : void
++ Remove() : void
+}
+
+
+AdFactory <|-down- SimpleAdFactory: Inheritance
+AdFactory <|-down- ExtendedAdFactory: Inheritance
+AdRemoveAndAdd <|-down- AdRemoveEA: Inheritance
+AdRemoveAndAdd <|-down- AdRemoveSA: Inheritance
+SimpleAdFactory ..> AdRemoveSA : uses
+ExtendedAdFactory ..> AdRemoveEA : uses
+Test o-- AdFactory
+Test o-- AdRemoveAndAdd
+Client --> Test : uses
+
+
+
+@enduml

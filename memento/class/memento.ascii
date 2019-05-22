@@ -1,0 +1,34 @@
+@startuml
+
+
+class Arama {
+-String anahtarKelime
++setAnahtarKelime(anahtarKelime : String) : void
++getAnahtarKelime() : String
++anahtarkelimeKaydet() : AnahtarKelime
++anahtarKelimeAl(gecmis : Gecmis) : void
+
+}
+
+class Gecmis{
+-List kelimeList
++ekle(anahtarKelime : AnahtarKelime) : void
++al() : void
+}
+
+class Test{
++{static} main() : void  
+}
+
+class AnahtarKelime{
+-String anahtarKelime
++AnahtarKelime(anahtarKelime : String) : void
++getAnahtarKelime() : String
+}
+
+Arama -right--> AnahtarKelime
+Gecmis o--left-> AnahtarKelime
+Test --> Arama : uses
+
+
+@enduml

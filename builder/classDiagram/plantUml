@@ -1,0 +1,60 @@
+@startuml
+
+title Advertisement Create - Class Diagram
+
+abstract class AdBuilder {
+- Ad ad
++ Adbuilder(ad : Ad) : void
++ BuildOutput() : String
++ {abstract} BuildInfo() : String
++ {abstract} BuildImagePath() : String
++ {abstract} BuildContact() : String
+}
+
+class AdManager {
+- AdBuilder builder
++ AdManager(builder : AdBuilder) : void
++ Build() : String 
+}
+
+class ExtendedAdBuilder{
++ ExtendedAdBuilder(ad : Ad) : void
++ BuildInfo() : String
++ BuildImagePath() : String
++ BuildContact() : String
+}
+
+class SimpleAdBuilder{
++ SimpleAdBuilder(ad : Ad) : void
++ BuildInfo() : String
++ BuildImagePath() : String
++ BuildContact() : String
+}
+
+class Test{
++ {static} main() : void
+}
+
+class Ad{
+- String info
+- String imagePath
+- String contact
+
++ getInfo() : String
++ getImagePath() : String
++ getContact() : String
++ setInfo(info : String) : void
++ setImagePath(path : String) : void
++ getContact(contact : String) : void 
+
+
+}
+
+AdManager o-- AdBuilder
+AdBuilder <|-down- ExtendedAdBuilder : Inheritance
+AdBuilder <|-down- SimpleAdBuilder : Inheritance
+Test --> AdManager : uses 
+SimpleAdBuilder ..> Ad : create 
+ExtendedAdBuilder ..> Ad : create
+
+@enduml

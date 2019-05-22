@@ -1,0 +1,57 @@
+@startuml
+
+interface Handler{
+
++setNextHandler(sonraki : Handler) : void
++ekle(girdi : Girdi) : void
+
+}
+
+
+class SoruEkle{
+
+-Handler sonraki
++setNextHandler(sonraki : Handler) : void
++ekle(girdi : Girdi) : void
+}
+
+
+class YaziEkle{
+
+-Handler sonraki
++setNextHandler(sonraki : Handler) : void
++ekle(girdi : Girdi) : void
+}
+
+
+class YorumEkle{
+
+-Handler sonraki
++setNextHandler(sonraki : Handler) : void
++ekle(girdi : Girdi) : void
+}
+
+class Test{
++{static} main() : void  
+}
+
+class Girdi{
+
+-String baslik
+-String icerik
+-String tür
++Girdi() : void
++getBaslik() : String
++getIcerik() : String
++getTur() : String
+
+}
+
+Handler <|----- YorumEkle
+Handler <|----- YaziEkle
+Handler <|----- SoruEkle
+Test --> Handler : uses
+Test -right-> Girdi : uses
+Handler --> Handler 
+
+@enduml

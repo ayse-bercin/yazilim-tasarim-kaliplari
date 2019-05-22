@@ -1,0 +1,4 @@
+OBJECT POOL
+
+
+Database connection objelerinin belli bir manager ile object pool da hazır kullanım için biriktirilmesi.

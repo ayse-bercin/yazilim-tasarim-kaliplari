@@ -1,0 +1,9 @@
+ConnectionSingleton.java ---
+
+Websitesi içerisindeki farklı sekmeler içinde bulunan arama kutuları için database üzerinde tek bir sql bağlantısı için oluşturulmuş singleton bağlantı dosyası.
+
+Test.java ---
+
+Ana dosya.
+
+

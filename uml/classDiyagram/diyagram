@@ -1,0 +1,128 @@
+@startuml
+
+title Class Diagram
+
+
+class Ziyaretçi {
+  +aramaYap()
+  +görüntüle()
+ 
+}
+
+class Üye {
+  +kullanıcıAdı : String
+  -sifre : String
+  +email : String
+  +durum : String
+  
+  +girisYap()
+  +profilDüzenle()
+}
+
+
+
+class Yönetici {
+  +adminİsim : String
+  -adminSifre : String
+  +email : String
+  +girisYap()
+  
+  
+}
+
+class Yorum{
+  -yorumID : String
+  +kullanıcıAdı : String
+  +icerik : String
+  +begeniSayısı : Int
+  
+  +ekle()
+  +sil()
+  +begen()
+
+}
+
+
+class Girdi{
+  -girdiID : String
+  +kullanıcıAdı : String
+  +girdiBaslık : String
+  +icerik : String
+  +begeniSayısı : Int
+  
+  +ekle()
+  +sil()
+  +begen()
+
+}
+
+class Soru{
+  +kullanıcıAdı : String
+  -soruID : String
+  +soruBaslık : String
+  +icerik : String
+  
+  +ekle()
+  +sil() 
+}
+
+class İlan{
+  +kullanıcıAdı : String
+  -ilanID : String
+  +ilanBaslık : String
+  +icerik : String
+  
+  +istekGönder()
+  +ilanKaldır()
+}
+
+class Şikayet{
+
+  +kullanıcıAdı : String
+  -şikayetID : String
+  +şikayetKonu : String
+  +içerikId : String
+  
+  +bildir()
+  +şikayetSil()
+  
+}
+
+class İstek{
+
+  +kullanıcıAdı : String
+  +ilanİçerik : String
+  -istekID : String
+  -ilanId : String
+  +istekkaldır()
+  +ilanYayınla()
+ 
+  
+}
+class Bildiri{
+
+  +kullanıcıAdı : String
+  -şikayetID : String
+  +şikayetKonu : String
+  +içerikId : String
+  
+  +içerikKaldır()
+  +şikayetSil()
+  
+}
+
+Ziyaretçi <|-- Üye
+Ziyaretçi <|-- Yönetici
+Üye "1" *-- "0..*" Yorum 
+Üye "1" *-- "0..*" Girdi
+Üye "1" *-- "0..*" İlan 
+Üye "1" *-- "0..*" Soru 
+Üye "1" *-- "0..*" Şikayet 
+Yönetici "1" *-- "0..*" İstek 
+Yönetici "1" *-- "0..*" Bildiri 
+
+
+
+
+
+@enduml

@@ -1,0 +1,42 @@
+1.Data.java 
+
+Oluşturulacak veri tipleri için bir superclasstır.
+Ortak olarak kullanıcı adi, veri id'si ve içerik içerir.
+Ortak metotları ekleme ve silme olarak oluşturuldu.
+
+2.Entry.java
+
+Eklenecek herhangi bir bilgi makale vs. için oluşturulmuş classtir.
+Data classtan ayrı olarak girdi başlığı,beğeni sayisi ve beğeni metodu içerir.
+
+3.Comment.java
+
+Eklenecek yorumlar için oluşturulmuş classtır.
+Data classtan ayrı olarak beğeni sayısı ve beğeni metodu içerir.
+
+4.Question.java 
+
+Eklenecek sorular için oluşturulmuş classtır.
+Data classtan ayrı olarak soru başlığı içerir.
+
+5.Advertisement.java
+
+Eklenecek ilanlar için oluşturulmuş classtır.
+Data classtan ayrı olarak ilan başlığı içerir.
+
+6.Complaint.java
+
+Şikayetler için oluşturulmuş classtır.
+Data classtan ayrı olarak şikayet edilecek içeriğin id'sini içerir.
+
+7.DataFactory.java
+
+Verilerimiz için oluşturulmuş factory methodu içerir.
+
+8.CreateDataFactory.java
+
+Ana dosya.
+
+
+
+
